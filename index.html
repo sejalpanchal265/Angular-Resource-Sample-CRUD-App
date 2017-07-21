@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html ng-app="myAngularApp">
+  <head>
+  	<title>Resource CRUD App</title>
+    
+  </head>
+
+  <body ng-controller='myCtrl as main'>
+  	 <div>
+  		<h3>Add User</h3>
+  		<p>User Name: <input type="text" ng-model='main.name'></p>
+  		<p><button ng-click='main.addUser(main.name)'>Add User</button></p>
+
+    </hr>
+
+      <h3>Get User</h3>
+        <p>User id: <input type="text" ng-model="main.id"></p>
+        <p>
+          <button ng-click="main.getUser(main.id)">Get User</button>
+          <button ng-click="main.deleteUser(main.id)">Delete User</button>
+        </p>
+
+      </hr>
+
+      <h3>User Info:</h3>
+      <p>{{main.selectedUser}}</p>
+
+      </hr>
+
+        <h3>All Users</h3>
+        <p><button ng-click='main.getUsers()'>Get Users</button></p>
+        <ul>
+        	<li ng-repeat='user in main.users'>
+        		{{user.name}} [{{user.id}}]
+
+        	</li>
+        </ul>
+  	</div> 
+
+  	<script src="script/angular.js" ></script>
+    <script src="script/angular-resource.min.js" ></script> 
+    <script src="app.js"></script>  
+  </body>
+    
+</html>
